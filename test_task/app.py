@@ -1,4 +1,6 @@
-import datetime
+from datetime import (
+    datetime,
+)
 
 import dash
 import dash_mantine_components as dmc
@@ -249,7 +251,7 @@ def select_shift_day(shift_day):
     if shift_day is None:
         raise PreventUpdate
 
-    shift_day = datetime.datetime.strptime(shift_day, '%Y-%m-%d')
+    shift_day = datetime.strptime(shift_day, '%Y-%m-%d')
     filtered_dataframe = dataframe[dataframe['shift_day'] == shift_day.date()]
 
     # Здесь в качестве теста
@@ -294,7 +296,7 @@ def confirm_button(click, *args):
             'Заполните все поля', style={'color': 'red'}
         )
 
-    shift_day = datetime.datetime.strptime(shift_day, '%Y-%m-%d')
+    shift_day = datetime.strptime(shift_day, '%Y-%m-%d')
     state_begin = pd.to_datetime(state_begin)
     state_end = pd.to_datetime(state_end)
 
