@@ -14,7 +14,7 @@ from sqlalchemy.orm import (
     sessionmaker,
 )
 
-from test_task.settings import (
+from settings import (
     DB_PATH,
 )
 

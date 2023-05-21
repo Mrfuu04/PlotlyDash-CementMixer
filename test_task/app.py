@@ -24,7 +24,7 @@ from database import (
     DataCollector,
 )
 
-from test_task.ui_components import (
+from ui_components import (
     MainPageUICreator,
 )
 
