@@ -22,7 +22,7 @@ class MainPageUICreator:
 
         if self.dataframe is not None:
             color_discrete_map = {
-                state: color for state, color in zip(self.dataframe['state'], self.dataframe['color'])
+                reason: color for reason, color in zip(self.dataframe['reason'], self.dataframe['color'])
             }
 
         return color_discrete_map
@@ -42,7 +42,7 @@ class MainPageUICreator:
             names='reason',
             height=450,
             color_discrete_map=self.color_discrete_map,
-            color='state',
+            color='reason',
         )
 
         reasons_pie.update_traces(hovertemplate=hover_template, hoverlabel_bgcolor='white')
@@ -79,7 +79,7 @@ class MainPageUICreator:
 
         states_duration_diagram = px.timeline(
             dataframe, x_start="state_begin", x_end="state_end",
-            y="endpoint_name", color='state', color_discrete_map=self.color_discrete_map,
+            y="endpoint_name", color='reason', color_discrete_map=self.color_discrete_map,
             custom_data=custom_data,
         )
 

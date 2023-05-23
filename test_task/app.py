@@ -348,9 +348,11 @@ def filter_states_duration_diagram(values, click):
     global states_duration_diagram
 
     if values:
-        for i in states_duration_diagram.data:
-            opacity = 0.2 if i['name'] not in values else 1
-            states_duration_diagram.update_traces(opacity=opacity, selector={'name': i['name']})
+        for trace in states_duration_diagram.data:
+            for customdata in trace['customdata']:
+                state = customdata[0]
+                opacity = 0.2 if state not in values else 1
+                states_duration_diagram.update_traces(opacity=opacity, selector={'name': trace['name']})
     else:
         states_duration_diagram.update_traces(opacity=1)
 
